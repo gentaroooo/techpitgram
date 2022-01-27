@@ -3,6 +3,8 @@
   <head>
     <title>Techpitgram</title>
     <%= csrf_meta_tags %>
+  
+       <%# ここの1行も追加 %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -22,6 +24,12 @@
          <div class="alert alert-danger"><%= flash[:alert] %></div>
        <% end %>
        <%= yield %>
+
+      <%# ==========ここにcontainerクラスを追加する========== %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <%# ==========divの閉じタグを追加========== %>
 
        <%# ========== partial/footerを追加する ========== %>
        <%= render 'partial/footer' %>
