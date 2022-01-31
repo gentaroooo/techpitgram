@@ -1,5 +1,9 @@
 class Photo < ApplicationRecord
- # ここに追加する
- belongs_to :post
- validates :image, presence: true
-end
+    belongs_to :post
+  
+    validates :image, presence: true
+  
+    # ここを追加
+    mount_uploader :image, ImageUploader
+  end
+  
