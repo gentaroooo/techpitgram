@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
-     # ここに追加する
-  belongs_to :user
-  has_many :photos, dependent: :destroy
-end
+    belongs_to :user
+    has_many :photos, dependent: :destroy
+  
+    # ここに追加
+    accepts_nested_attributes_for :photos
+  end
+  
