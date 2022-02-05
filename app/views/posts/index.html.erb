@@ -7,7 +7,7 @@
             <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
           <% end %>
           <%= link_to user_path(post.user), class: "black-color no-text-decoration",
-            title: post.user.name do %a
+            title: post.user.name do %>
             <strong><%= post.user.name %></strong>
           <% end %>
         </div>
@@ -32,7 +32,10 @@
           <div>
             <span><strong><%= post.user.name %></strong></span>
             <span><%= post.caption %></span>
-            <%= link_to time_ago_in_words(post.created_at).upcase + "前", "#", class: "post-time no-text-decoration" %>
+
+            <%# =====この行を編集する====== %>
+            <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
+
             <hr>
             <div class="row parts">
               <form action="#" class="w-100">
