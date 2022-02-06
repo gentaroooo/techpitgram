@@ -33,7 +33,6 @@
             <span><strong><%= post.user.name %></strong></span>
             <span><%= post.caption %></span>
 
-            <%# =====この行を編集する====== %>
             <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
 
             <hr>
