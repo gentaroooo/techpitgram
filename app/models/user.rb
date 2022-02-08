@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   
     
-  # この行を追加する
   has_many :posts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -10,7 +9,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 50 }
 
-  # ==========ここから追加する==========
   def update_without_current_password(params, *options)
 
     if params[:password].blank? && params[:password_confirmation].blank?
@@ -22,8 +20,8 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
-  # ==========ここまで追加する==========
-
+  
+  has_many :likes
 end
 
 
