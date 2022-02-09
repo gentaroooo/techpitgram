@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # この行を編集する
   resources :posts, only: %i(index new create show destroy) do
     resources :photos, only: %i(create)
+    resources :likes, only: %i(create destroy)
   end
 end
