@@ -1,9 +1,14 @@
 class Photo < ApplicationRecord
-    belongs_to :post
-  
-    validates :image, presence: true
-  
-    # ここを追加
-    mount_uploader :image, ImageUploader
+  belongs_to :post
+
+  validates :image, presence: true
+
+  mount_uploader :image, PhotoUploader
+
+  class << self
+    # アップロードされた画像のサイズをバリデーションする
+    def picture_size?(image)
+      image.size < 1.megabytes
+    end
   end
-  
+end
